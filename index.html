@@ -3,101 +3,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ads Dashboard</title>
+    <title>Article Reading Page</title>
+    <link rel="stylesheet" href="">
+    <script src="https://quge5.com/88/tag.min.js" data-zone="197045" async data-cfasync="false"></script>  
+    <script src="https://3nbf4.com/act/files/tag.min.js?z=10389436" data-cfasync="false" async></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .theme-toggle, .font-size-control {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover, .font-size-control:hover {
+            background: #e2e8f0;
+            transform: scale(1.05);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .article-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .category {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        
+        .article-meta i {
+            margin-right: 5px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-height: 450px;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+        
+        .article-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .article-content h2 {
+            color: #2c3e50;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .article-footer {
+            border-top: 1px solid #eaeaea;
+            padding-top: 30px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            background: #f1f5f9;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            transition: all 0.3s;
+        }
+        
+        .action-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme header {
+            background-color: #2d2d2d;
+        }
+        
+        body.dark-theme .logo {
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .article-content h1,
+        body.dark-theme .article-content h2 {
+            color: #f0f0f0;
+        }
+        
+        body.dark-theme .article-content blockquote {
+            background-color: #2d2d2d;
+            color: #b0b0b0;
+        }
+        
+        body.dark-theme .tag,
+        body.dark-theme .theme-toggle,
+        body.dark-theme .font-size-control,
+        body.dark-theme .action-btn {
+            background-color: #3d3d3d;
+            color: #e0e0e0;
+        }
+        
+        /* Font Size Classes */
+        body.small-font .article-content {
+            font-size: 0.95rem;
+        }
+        
+        body.large-font .article-content {
+            font-size: 1.3rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .article-footer {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .actions {
+                align-self: flex-end;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #e0e0e0;
+            z-index: 999;
+        }
+        
+        .reading-progress-bar {
+            height: 100%;
+            background-color: #3498db;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
 </head>
 <body>
-    <center><h1>Dashboard</h1></center>
-  <button id="">Watch Ads</button>
-
-    <a href="github.com/adamsaho">Github</a>
-
-
-
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="progressBar"></div>
+    </div>
     
-    <a href="test.html">test</a>
-
-
-    <script src="https://pl25545118.effectivegatecpm.com/09/25/16/0925165b8e21d20cd408870dd39b9634.js"></script>
-
-    <script>
-  atOptions = {
-    'key' : '4ba00992c931877144103265dcc84f8a',
-    'format' : 'iframe',
-    'height' : 60,
-    'width' : 468,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/4ba00992c931877144103265dcc84f8a/invoke.js"></script>
-
-
-    <script async="async" data-cfasync="false" src="https://pl28355766.effectivegatecpm.com/01d263cabca3ab75c4b08544b341ad0e/invoke.js"></script>
-<div id="container-01d263cabca3ab75c4b08544b341ad0e"></div>
-
-    <script>
-  atOptions = {
-    'key' : '12c2cfdd79f77fbb8093b85db4f56629',
-    'format' : 'iframe',
-    'height' : 300,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/12c2cfdd79f77fbb8093b85db4f56629/invoke.js"></script>
-
-    <script>
-  atOptions = {
-    'key' : '23fd14f81f9dfd445a9e8159cbc7bc4e',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/23fd14f81f9dfd445a9e8159cbc7bc4e/invoke.js"></script>
-
-    <script>
-  atOptions = {
-    'key' : '007b657252114418b04e3e18431c63e3',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/007b657252114418b04e3e18431c63e3/invoke.js"></script>
-
-    <script>
-  atOptions = {
-    'key' : '3ad81ee22b61d71c3a51e861fe52f2a4',
-    'format' : 'iframe',
-    'height' : 600,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/3ad81ee22b61d71c3a51e861fe52f2a4/invoke.js"></script>
-
-    <script>
-  atOptions = {
-    'key' : '23038ad7bf304069137c5d739cddcb28',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/23038ad7bf304069137c5d739cddcb28/invoke.js"></script>
-
-    <script src="https://pl25545218.effectivegatecpm.com/aa/89/c0/aa89c0c4c6fcf8ce21d00a99c6626699.js"></script>
+    <!-- Header -->
+    <header>
+        <div class="logo">Read<span>Well</span></div>
+        <nav class="nav-links">
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-book-open"></i> Library</a>
+            <a href="#"><i class="fas fa-bookmark"></i> Bookmarks</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+        </nav>
+        <div class="controls">
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="font-size-control" id="fontIncrease" title="Increase Font Size">
+                <i class="fas fa-text-height"></i> +
+            </button>
+            <button class="font-size-control" id="fontDecrease" title="Decrease Font Size">
+                <i class="fas fa-text-height"></i> -
+            </button>
+        </div>
+    </header>
     
+    <!-- Main Content -->
+    <main class="container">
+        <article>
+            <div class="article-header">
+                <span class="category">Technology</span>
+                <h1 id="articleTitle">The Future of Artificial Intelligence: Opportunities and Challenges</h1>
+                <div class="article-meta">
+                    <span><i class="far fa-user"></i> By Alex Johnson</span>
+                    <span><i class="far fa-calendar"></i> Published: June 15, 2023</span>
+                    <span><i class="far fa-clock"></i> 8 min read</span>
+                </div>
+            </div>
+            
+            <img src="" alt="AI Technology" class="featured-image">
+            
+            <div class="article-content" id="articleContent">
+                <p>Artificial Intelligence (AI) has transformed from a futuristic concept into a present-day reality that is reshaping industries, economies, and societies. The rapid advancement of AI technologies presents both unprecedented opportunities and complex challenges that demand careful consideration.</p>
+                
+                <h2>The Evolution of AI</h2>
+                <p>AI has evolved through several stages since its inception in the 1950s. Early AI systems were rule-based and limited in their capabilities. Today, we're witnessing the rise of machine learning and deep learning algorithms that can process vast amounts of data, recognize patterns, and make decisions with human-like—and sometimes superhuman—accuracy.</p>
+                
+                <p>The breakthrough came with the development of neural networks that mimic the human brain's structure. These systems learn from experience, improving their performance over time without explicit programming for each task. This capability has enabled AI to excel in areas such as image recognition, natural language processing, and complex game strategy.</p>
+                
+                <blockquote>
+                    "Artificial intelligence is the new electricity. Just as electricity transformed countless industries a century ago, AI will now do the same." — Andrew Ng
+                </blockquote>
+                
+                <h2>Current Applications and Opportunities</h2>
+                <p>AI is already making significant impacts across various sectors. In healthcare, AI algorithms assist in diagnosing diseases from medical images with remarkable accuracy. In finance, they detect fraudulent transactions in real-time. Autonomous vehicles use AI to navigate complex environments, while recommendation systems personalize our digital experiences.</p>
+                
+                <p>The opportunities presented by AI are vast. It has the potential to solve some of humanity's most pressing problems, from climate change to disease eradication. AI can optimize energy consumption, accelerate drug discovery, improve agricultural yields, and enhance educational outcomes through personalized learning.</p>
+                
+                <h2>Ethical Considerations and Challenges</h2>
+                <p>Despite its promise, AI raises important ethical questions. Bias in training data can lead to discriminatory outcomes, affecting marginalized communities disproportionately. The "black box" nature of some AI systems makes it difficult to understand how they arrive at decisions, creating accountability challenges.</p>
+                
+                <p>Job displacement due to automation is a significant concern. While AI will create new employment opportunities, the transition may be difficult for workers whose skills become obsolete. Privacy issues also arise as AI systems often require access to large amounts of personal data to function effectively.</p>
+                
+                <h2>The Path Forward</h2>
+                <p>Responsible AI development requires collaboration between technologists, policymakers, ethicists, and the public. We need transparent systems, robust testing frameworks, and inclusive design processes. Regulation should encourage innovation while protecting fundamental rights.</p>
+                
+                <p>Education systems must adapt to prepare future generations for an AI-driven world. This includes not only technical skills but also critical thinking, creativity, and ethical reasoning—capabilities where humans still maintain a distinct advantage over machines.</p>
+                
+                <p>As we stand at this technological crossroads, our choices will determine whether AI becomes a tool for human empowerment or a source of new inequalities. With thoughtful stewardship, AI can be harnessed to create a more prosperous, equitable, and sustainable future for all.</p>
+            </div>
+            
+            <div class="article-footer">
+                <div class="tags">
+                    <span class="tag">Artificial Intelligence</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">Future Trends</span>
+                    <span class="tag">Ethics</span>
+                    <span class="tag">Innovation</span>
+                </div>
+                
+                <div class="actions">
+                    <button class="action-btn" id="likeBtn" title="Like Article">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <button class="action-btn" id="shareBtn" title="Share Article">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button class="action-btn" id="bookmarkBtn" title="Bookmark Article">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <button class="action-btn" id="printBtn" title="Print Article">
+                        <i class="fas fa-print"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const fontIncrease = document.getElementById('fontIncrease');
+        const fontDecrease = document.getElementById('fontDecrease');
+        const likeBtn = document.getElementById('likeBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        const printBtn = document.getElementById('printBtn');
+        const progressBar = document.getElementById('progressBar');
+        const articleContent = document.getElementById('articleContent');
+        
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                themeToggle.title = "Toggle Light Mode";
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                themeToggle.title = "Toggle Dark Mode";
+            }
+        });
+        
+        // Font Size Controls
+        let fontSizeLevel = 0; // 0 = normal, -1 = small, 1 = large
+        
+        fontIncrease.addEventListener('click', () => {
+            if (fontSizeLevel < 1) {
+                document.body.classList.remove('small-font', 'large-font');
+                
+                if (fontSizeLevel === 0) {
+                    document.body.classList.add('large-font');
+                    fontSizeLevel = 1;
+                } else if (fontSizeLevel === -1) {
+                    fontSizeLevel = 0; // Back to normal
+                }
+            }
+        });
+        
+        fontDecrease.addEventListener('click', () => {
+            if (fontSizeLevel > -1) {
+                document.body.classList.remove('small-font', 'large-font');
+                
+                if (fontSizeLevel === 0) {
+                    document.body.classList.add('small-font');
+                    fontSizeLevel = -1;
+                } else if (fontSizeLevel === 1) {
+                    fontSizeLevel = 0; // Back to normal
+                }
+            }
+        });
+        
+        // Article Actions
+        likeBtn.addEventListener('click', () => {
+            const icon = likeBtn.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+            icon.classList.toggle('liked');
+            
+            if (icon.classList.contains('fas')) {
+                likeBtn.style.color = '#e74c3c';
+                likeBtn.title = "Unlike Article";
+            } else {
+                likeBtn.style.color = '';
+                likeBtn.title = "Like Article";
+            }
+        });
+        
+        bookmarkBtn.addEventListener('click', () => {
+            const icon = bookmarkBtn.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+            
+            if (icon.classList.contains('fas')) {
+                bookmarkBtn.style.color = '#3498db';
+                bookmarkBtn.title = "Remove Bookmark";
+            } else {
+                bookmarkBtn.style.color = '';
+                bookmarkBtn.title = "Bookmark Article";
+            }
+        });
+        
+        shareBtn.addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.getElementById('articleTitle').textContent,
+                    text: 'Check out this interesting article about AI!',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                alert('Article link copied to clipboard!');
+                navigator.clipboard.writeText(window.location.href);
+            }
+        });
+        
+        printBtn.addEventListener('click', () => {
+            window.print();
+        });
+        
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial progress bar
+            progressBar.style.width = '0%';
+            
+            // Check for saved theme preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-theme');
+                const icon = themeToggle.querySelector('i');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                themeToggle.title = "Toggle Light Mode";
+            }
+        });
+    </script>
+
+
+<script>(function(s){s.dataset.zone='10389438',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+<script>(function(s){s.dataset.zone='10389437',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+<script>(function(s){s.dataset.zone='10389435',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
 </body>
 </html>
+
 <script>
-//   setTimeout(() => {
-//   window.location.href = "ads.html";
-// }, 2000);
-
+  // Simple linear scrolling over 20 seconds
+window.addEventListener('load', function() {
+    console.log("Starting 20-second linear auto-scroll");
     
-
+    const duration = 20000; // 20 seconds
+    const startTime = Date.now();
+    const startPosition = window.scrollY || document.documentElement.scrollTop;
+    const documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+    );
+    const distance = documentHeight - window.innerHeight - startPosition;
+    
+    function scrollStep() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Linear scrolling
+        const currentScroll = startPosition + (distance * progress);
+        window.scrollTo(0, currentScroll);
+        
+        if (progress < 1) {
+            requestAnimationFrame(scrollStep);
+        } else {
+            console.log("Finished scrolling");
+        }
+    }
+    
+    scrollStep();
+});
 </script>
